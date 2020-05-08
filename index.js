@@ -1,35 +1,37 @@
-const MyStack = () => {
-  const storage = {};
-  let index = 0;
+const MyStack = class {
+  constructor() {
+    this.data = {};
+    this.index = 0;
+  }
 
-  const push = num => {
-    storage[index] = num;
-    index ++;
-    return;
-  };
+  push(item) {
+    this.data[this.index] = item;
+    this.index++;
+  }
 
-  const print = () => {
-    console.log(storage);
-    return;
-  };
+  pop() {
+    delete this.data[this.index - 1];
+    this.index --;
+  }
 
-  const pop = () => {
-    delete storage[index-1];
-    index --;
-    return;
-  };
+  peek() {
+    return this.data[this.index - 1]
+  }
 
-  const size = () => index;
+  size() {
+    return this.index;
+  }
 
-  return { push, print, pop, size };
-};
+  print() {
+    console.log(this.data);
+  }
+}
+
 
 const stack = MyStack();
 
-stack.push(10);
-stack.push(11);
-stack.push(12);
-stack.print();
-stack.pop();
-stack.print();
-console.log(stack.size());
+stack.push('a'); // { 0 : 'a' }
+stack.print(); 
+// stack.push('b'); // { 0: 'a', 1: 'b' }
+// stack.pop(); // { 0 : 'a' }
+// stack.peek(); // 'a'
