@@ -7,11 +7,14 @@ const MyStack = class {
   push(item) {
     this.data[this.index] = item;
     this.index++;
+    return this.index;
   }
 
   pop() {
+    const item = this.data[this.index - 1]
     delete this.data[this.index - 1];
     this.index --;
+    return item;
   }
 
   peek() {
@@ -27,11 +30,12 @@ const MyStack = class {
   }
 }
 
-
-const stack = MyStack();
+const stack = new MyStack();
 
 stack.push('a'); // { 0 : 'a' }
 stack.print(); 
-// stack.push('b'); // { 0: 'a', 1: 'b' }
-// stack.pop(); // { 0 : 'a' }
-// stack.peek(); // 'a'
+stack.push('b'); // { 0: 'a', 1: 'b' }
+stack.print();
+stack.pop(); // { 0 : 'a' }
+stack.print();
+console.log(stack.peek()); // 'a'
