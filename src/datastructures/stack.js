@@ -30,7 +30,7 @@ const MyStack = class {
   }
 }
 
-log('STACK');
+log('STACK (LIFO)');
 const stack = new MyStack();
 stack.push('a'); // { 0 : 'a' }
 stack.print(); 
