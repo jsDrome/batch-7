@@ -30,10 +30,8 @@ const MyStack = class {
   }
 }
 
-
 log('STACK');
 const stack = new MyStack();
-
 stack.push('a'); // { 0 : 'a' }
 stack.print(); 
 stack.push('b'); // { 0: 'a', 1: 'b' }
